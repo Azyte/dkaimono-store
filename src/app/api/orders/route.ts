@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
         expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // 1 hour
         ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || null,
         user_agent: request.headers.get('user-agent') || null,
-      } as Record<string, unknown>)
+      })
       .select()
       .single();
 
@@ -136,13 +136,13 @@ export async function POST(request: NextRequest) {
       payment_gateway: 'mock',
       status: 'pending',
       idempotency_key: idempotencyKey,
-    } as Record<string, unknown>);
+    });
 
     // Update promo usage
     if (promoId) {
       await supabase.from('promos').update({
         used_count: (await supabase.from('promos').select('used_count').eq('id', promoId).single()).data?.used_count + 1,
-      } as Record<string, unknown>).eq('id', promoId);
+      }).eq('id', promoId);
     }
 
     // Simulate mock payment processing (auto-complete after 5s)
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
       await adminClient.from('orders').update({
         status: 'paid',
         paid_at: new Date().toISOString(),
-      } as Record<string, unknown>).eq('id', order.id);
+      }).eq('id', order.id);
 
       // After payment, simulate delivery
       setTimeout(async () => {
@@ -159,32 +159,32 @@ export async function POST(request: NextRequest) {
         await adminClient2.from('orders').update({
           status: 'processing',
           processing_at: new Date().toISOString(),
-        } as Record<string, unknown>).eq('id', order.id);
+        }).eq('id', order.id);
 
         setTimeout(async () => {
           const adminClient3 = await createAdminSupabaseClient();
           await adminClient3.from('orders').update({
             status: 'completed',
             completed_at: new Date().toISOString(),
-          } as Record<string, unknown>).eq('id', order.id);
+          }).eq('id', order.id);
 
           // Update transaction
           await adminClient3.from('transactions').update({
             status: 'success',
             verified_at: new Date().toISOString(),
-          } as Record<string, unknown>).eq('order_id', order.id);
+          }).eq('order_id', order.id);
 
           // Update product stats
           await adminClient3.from('products').update({
             total_sold: product.total_sold + 1,
-          } as Record<string, unknown>).eq('id', product.id);
+          }).eq('id', product.id);
 
           // Update game stats
           const { data: gameData } = await adminClient3.from('games').select('total_orders').eq('id', game_id).single();
           if (gameData) {
             await adminClient3.from('games').update({
               total_orders: gameData.total_orders + 1,
-            } as Record<string, unknown>).eq('id', game_id);
+            }).eq('id', game_id);
           }
         }, 3000);
       }, 2000);

@@ -36,7 +36,7 @@ export default function AdminProductsPage() {
   }, []);
 
   const toggleActive = async (id: string, isActive: boolean) => {
-    await supabase.from('products').update({ is_active: !isActive } as Record<string, unknown>).eq('id', id);
+    await supabase.from('products').update({ is_active: !isActive }).eq('id', id);
     setProducts((prev: (Product & { game?: Game })[]) => prev.map((p: Product & { game?: Game }) => p.id === id ? { ...p, is_active: !isActive } : p));
   };
 

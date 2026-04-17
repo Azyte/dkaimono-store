@@ -37,12 +37,12 @@ export default function AdminUsersPage() {
 
   const toggleRole = async (userId: string, currentRole: string) => {
     const newRole = currentRole === 'admin' ? 'user' : 'admin';
-    await supabase.from('profiles').update({ role: newRole } as Record<string, unknown>).eq('id', userId);
+    await supabase.from('profiles').update({ role: newRole }).eq('id', userId);
     setUsers((prev: Profile[]) => prev.map((u: Profile) => u.id === userId ? { ...u, role: newRole as Profile['role'] } : u));
   };
 
   const toggleBan = async (userId: string, isBanned: boolean) => {
-    await supabase.from('profiles').update({ is_banned: !isBanned } as Record<string, unknown>).eq('id', userId);
+    await supabase.from('profiles').update({ is_banned: !isBanned }).eq('id', userId);
     setUsers((prev: Profile[]) => prev.map((u: Profile) => u.id === userId ? { ...u, is_banned: !isBanned } : u));
   };
 
