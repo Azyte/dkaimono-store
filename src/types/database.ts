@@ -193,14 +193,14 @@ export interface Notification {
 export interface Database {
   public: {
     Tables: {
-      profiles: { Row: Profile; Insert: Partial<Profile>; Update: Partial<Profile> };
-      games: { Row: Game; Insert: Partial<Game>; Update: Partial<Game> };
-      products: { Row: Product; Insert: Partial<Product>; Update: Partial<Product> };
-      orders: { Row: Order; Insert: Partial<Order>; Update: Partial<Order> };
-      transactions: { Row: Transaction; Insert: Partial<Transaction>; Update: Partial<Transaction> };
-      promos: { Row: Promo; Insert: Partial<Promo>; Update: Partial<Promo> };
-      banners: { Row: Banner; Insert: Partial<Banner>; Update: Partial<Banner> };
-      notifications: { Row: Notification; Insert: Partial<Notification>; Update: Partial<Notification> };
+      profiles: { Row: Profile; Insert: Partial<Profile>; Update: Partial<Profile>; Relationships: any[] };
+      games: { Row: Game; Insert: Partial<Game>; Update: Partial<Game>; Relationships: any[] };
+      products: { Row: Product; Insert: Partial<Product>; Update: Partial<Product>; Relationships: any[] };
+      orders: { Row: Order; Insert: Partial<Order>; Update: Partial<Order>; Relationships: any[] };
+      transactions: { Row: Transaction; Insert: Partial<Transaction>; Update: Partial<Transaction>; Relationships: any[] };
+      promos: { Row: Promo; Insert: Partial<Promo>; Update: Partial<Promo>; Relationships: any[] };
+      banners: { Row: Banner; Insert: Partial<Banner>; Update: Partial<Banner>; Relationships: any[] };
+      notifications: { Row: Notification; Insert: Partial<Notification>; Update: Partial<Notification>; Relationships: any[] };
     };
   };
 }
