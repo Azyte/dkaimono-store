@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Anti-duplicate: check for recent identical order
     const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
-    const { data: recentOrders } = await (supabase as any)
+    const { data: recentOrders } = await supabase
       .from('orders')
       .select('id')
       .eq('game_user_id', game_user_id)
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     let promoId = null;
 
     if (promo_code) {
-      const { data: promo } = await (supabase as any)
+      const { data: promo } = await supabase
         .from('promos')
         .select('*')
         .eq('code', promo_code.toUpperCase())
@@ -87,11 +87,11 @@ export async function POST(request: NextRequest) {
     const total = subtotal - discount;
 
     // Generate order number
-    const { data: orderNumResult } = await (supabase as any).rpc('generate_order_number' as never);
+    const { data: orderNumResult } = await supabase.rpc('generate_order_number' as never);
     const orderNumber = (orderNumResult as unknown as string) || `DKM-${Date.now()}`;
 
     // Create order
-    const { data: order, error: orderError } = await (supabase as any)
+    const { data: order, error: orderError } = await supabase
       .from('orders')
       .insert({
         order_number: orderNumber,
@@ -128,7 +128,7 @@ export async function POST(request: NextRequest) {
     // Create transaction with idempotency key
     const idempotencyKey = `${order.id}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
-    await (supabase as any).from('transactions').insert({
+    await supabase.from('transactions').insert({
       order_id: order.id,
       type: 'payment',
       amount_idr: total,
@@ -140,8 +140,8 @@ export async function POST(request: NextRequest) {
 
     // Update promo usage
     if (promoId) {
-      await (supabase as any).from('promos').update({
-        used_count: (await (supabase as any).from('promos').select('used_count').eq('id', promoId).single()).data?.used_count + 1,
+      await supabase.from('promos').update({
+        used_count: (await supabase.from('promos').select('used_count').eq('id', promoId).single()).data?.used_count + 1,
       }).eq('id', promoId);
     }
 
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
       await adminClient.from('orders').update({
         status: 'paid',
         paid_at: new Date().toISOString(),
-      } as any).eq('id', order.id);
+      }).eq('id', order.id);
 
       // After payment, simulate delivery
       setTimeout(async () => {
@@ -159,32 +159,32 @@ export async function POST(request: NextRequest) {
         await adminClient2.from('orders').update({
           status: 'processing',
           processing_at: new Date().toISOString(),
-        } as any).eq('id', order.id);
+        }).eq('id', order.id);
 
         setTimeout(async () => {
           const adminClient3 = await createAdminSupabaseClient();
           await adminClient3.from('orders').update({
             status: 'completed',
             completed_at: new Date().toISOString(),
-          } as any).eq('id', order.id);
+          }).eq('id', order.id);
 
           // Update transaction
           await adminClient3.from('transactions').update({
             status: 'success',
             verified_at: new Date().toISOString(),
-          } as any).eq('order_id', order.id);
+          }).eq('order_id', order.id);
 
           // Update product stats
           await adminClient3.from('products').update({
             total_sold: product.total_sold + 1,
-          } as any).eq('id', product.id);
+          }).eq('id', product.id);
 
           // Update game stats
           const { data: gameData } = await adminClient3.from('games').select('total_orders').eq('id', game_id).single();
           if (gameData) {
             await adminClient3.from('games').update({
               total_orders: gameData.total_orders + 1,
-            } as any).eq('id', game_id);
+            }).eq('id', game_id);
           }
         }, 3000);
       }, 2000);

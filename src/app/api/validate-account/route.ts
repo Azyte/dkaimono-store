@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
       validation_mode: game.validation_mode,
       ip_address: request.headers.get('x-forwarded-for') || null,
       raw_response: result,
-    } as any);
+    });
 
     if (result.success) {
       return NextResponse.json({
