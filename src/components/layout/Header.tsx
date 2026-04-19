@@ -15,7 +15,8 @@ export function Header() {
     const saved = localStorage.getItem('dkaimono-theme') as 'light' | 'dark' | null;
     if (saved) setTheme(saved);
 
-    supabase.auth.getUser().then(async ({ data: { user: authUser } }) => {
+    supabase.auth.getUser().then(async (res: any) => {
+      const authUser = res?.data?.user;
       if (authUser) {
         const { data } = await supabase
           .from('profiles')
