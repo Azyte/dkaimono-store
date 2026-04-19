@@ -32,7 +32,7 @@ export default function AdminPromosPage() {
   }, []);
 
   const toggleActive = async (id: string, isActive: boolean) => {
-    await supabase.from('promos').update({ is_active: !isActive }).eq('id', id);
+    await supabase.from('promos').update({ is_active: !isActive } as any).eq('id', id);
     setPromos((prev: Promo[]) => prev.map((p: Promo) => p.id === id ? { ...p, is_active: !isActive } : p));
   };
 

@@ -32,7 +32,7 @@ export default function AdminGamesPage() {
   }, []);
 
   const toggleActive = async (id: string, isActive: boolean) => {
-    await supabase.from('games').update({ is_active: !isActive }).eq('id', id);
+    await supabase.from('games').update({ is_active: !isActive } as any).eq('id', id);
     setGames((prev: Game[]) => prev.map((g: Game) => g.id === id ? { ...g, is_active: !isActive } : g));
   };
 
