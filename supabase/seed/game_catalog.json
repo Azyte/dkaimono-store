@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Mobile Legends: Bang Bang",
+    "publisher": "Moonton",
+    "category": "Mobile Games",
+    "description": "Top Up Diamond Mobile Legends harga termurah.",
+    "icon_url": "https://play-lh.googleusercontent.com/1-d_8H0VCHkGgQ4pY9S1jA13oO5I1e5P5vC9Qz-c8mPz0Xk-cK1f56iB-E5r-fL-oQ=w240-h480-rw",
+    "cover_url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070",
+    "supplier_code": "MLBB",
+    "sort_order": 1,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "user_id", "label": "User ID", "type": "text", "required": true, "placeholder": "Enter User ID" },
+      { "name": "zone_id", "label": "Zone ID", "type": "text", "required": true, "placeholder": "Enter Zone ID" }
+    ],
+    "instructions": "Untuk mengetahui User ID Anda, silakan klik menu profile di bagian kiri atas pada menu utama game. User ID akan terlihat di bagian bawah Nama Karakter Game Anda. Silakan masukkan User ID dan Zone ID Anda untuk menyelesaikan transaksi. Contoh: 12345678 (1234)."
+  },
+  {
+    "name": "Free Fire",
+    "publisher": "Garena",
+    "category": "Mobile Games",
+    "description": "Top Up Diamond Free Fire termurah.",
+    "icon_url": "https://play-lh.googleusercontent.com/NEs2AolKny3sTz8P5bIPW_gA-1uJjF7Vj69oHlVvEqK-0R6M7Hh1q0v6R3C1m9m8A=w240-h480-rw",
+    "cover_url": "https://esports.id/img/article/522120190531065123.jpg",
+    "supplier_code": "FF",
+    "sort_order": 2,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "user_id", "label": "Player ID", "type": "text", "required": true, "placeholder": "Enter Player ID" }
+    ],
+    "instructions": "Untuk mengetahui Player ID Anda, silakan klik menu profile. Player ID akan terlihat tepat di bawah nama karakter Anda."
+  },
+  {
+    "name": "PUBG Mobile",
+    "publisher": "Tencent Games",
+    "category": "Mobile Games",
+    "description": "Top Up UC PUBG Mobile termurah.",
+    "icon_url": "https://play-lh.googleusercontent.com/JRd05pyBH4HQj02M5F-QoP_c4B-uBx6wA4m4I-U3X6A4m4I-U3X6A4m4I-U3X6A4m4=w240-h480-rw",
+    "cover_url": "https://wallpaperaccess.com/full/1126744.jpg",
+    "supplier_code": "PUBG",
+    "sort_order": 3,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "user_id", "label": "Player ID", "type": "text", "required": true, "placeholder": "Enter Player ID" }
+    ],
+    "instructions": "Masuk ke Profil Anda, temukan Nomor ID (Contoh: 51234567). Ketik Nomor ID tersebut pada kolom Player ID untuk melakukan top up."
+  },
+  {
+    "name": "Genshin Impact",
+    "publisher": "HoYoverse",
+    "category": "Mobile Games",
+    "description": "Top Up Genesis Crystal Genshin Impact.",
+    "icon_url": "https://play-lh.googleusercontent.com/vt1g8jR44NMBv2w42Fj8Rz2gN4Z28Qf3F4p1r0J4C8F4H9R3c5E3f7Y8=w240-h480-rw",
+    "cover_url": "https://pic.uhdpaper.com/wallpaper/genshin-impact-lumine-aether-scenery-pc-wallpaper-uhdpaper.com-4K-8.3184.jpg",
+    "supplier_code": "GENSHIN",
+    "sort_order": 4,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "user_id", "label": "UID", "type": "text", "required": true, "placeholder": "Enter UID" },
+      { "name": "server", "label": "Server", "type": "select", "required": true, "options": [
+        {"value": "os_asia", "label": "Asia"},
+        {"value": "os_usa", "label": "America"},
+        {"value": "os_euro", "label": "Europe"},
+        {"value": "os_cht", "label": "TW, HK, MO"}
+      ]}
+    ],
+    "instructions": "Temukan UID Anda (berada di pojok kanan bawah layer dalam game). Pilih Server yang Anda gunakan."
+  },
+  {
+    "name": "Valorant",
+    "publisher": "Riot Games",
+    "category": "PC Games",
+    "description": "Top Up Valorant Points (VP) termurah.",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/2048px-Valorant_logo_-_pink_color_version.svg.png",
+    "cover_url": "https://images.hdqwalls.com/download/valorant-4k-game-h9-1920x1080.jpg",
+    "supplier_code": "VALORANT",
+    "sort_order": 5,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "riot_id", "label": "Riot ID", "type": "text", "required": true, "placeholder": "Enter Riot ID" },
+      { "name": "tag", "label": "Tagline", "type": "text", "required": true, "placeholder": "Enter Tagline (e.g. #1234)" }
+    ],
+    "instructions": "Ketik Riot ID dan Tagline Anda. Contoh: Player1#1234."
+  },
+  {
+    "name": "Honkai: Star Rail",
+    "publisher": "HoYoverse",
+    "category": "Mobile Games",
+    "description": "Top Up Oneiric Shard Honkai Star Rail.",
+    "icon_url": "https://play-lh.googleusercontent.com/4g_f5vY8L4952P1T1j6Z5kZ0fXX_vNq1uS46LgTQm0jV1eJ2QYkS8V3-qJ3G9p17p9g=w240-h480-rw",
+    "cover_url": "https://wallpapercave.com/wp/wp12318856.jpg",
+    "supplier_code": "HONKAI",
+    "sort_order": 6,
+    "is_active": true,
+    "validation_mode": "mock",
+    "validation_fields": [
+      { "name": "user_id", "label": "UID", "type": "text", "required": true, "placeholder": "Enter UID" },
+      { "name": "server", "label": "Server", "type": "select", "required": true, "options": [
+        {"value": "prod_official_asia", "label": "Asia"},
+        {"value": "prod_official_usa", "label": "America"},
+        {"value": "prod_official_euro", "label": "Europe"},
+        {"value": "prod_official_cht", "label": "TW, HK, MO"}
+      ]}
+    ],
+    "instructions": "Temukan UID di pojok kiri bawah layer saat bermain. Pilih Server Anda."
+  },
+  {
+    "name": "Roblox",
+    "publisher": "Roblox Corporation",
+    "category": "PC Games",
+    "description": "Top Up Robux dan Premium.",
+    "icon_url": "https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht=w240-h480-rw",
+    "cover_url": "https://wallpaperaccess.com/full/7679367.jpg",
+    "supplier_code": "ROBLOX",
+    "sort_order": 7,
+    "is_active": true,
+    "validation_mode": "disabled",
+    "validation_fields": [
+      { "name": "username", "label": "Roblox Username", "type": "text", "required": true, "placeholder": "GamerXD" }
+    ],
+    "instructions": "Ketik Username Roblox kamu dengan benar. (Bukan display name)"
+  },
+  {
+    "name": "Steam Wallet (IDR)",
+    "publisher": "Valve",
+    "category": "Voucher",
+    "description": "Kode Voucher Steam Wallet Indonesia.",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png",
+    "cover_url": "https://wallpaperaccess.com/full/2221669.jpg",
+    "supplier_code": "STEAM",
+    "sort_order": 8,
+    "is_active": true,
+    "validation_mode": "disabled",
+    "validation_fields": [
+      { "name": "whatsapp", "label": "Nomor WhatsApp", "type": "text", "required": true, "placeholder": "0812xxx" }
+    ],
+    "instructions": "Kode Voucher Steam akan dikirimkan ke riwayat transaksi dan nomor WhatsApp yang diinput."
+  },
+  {
+    "name": "Netflix Premium",
+    "publisher": "Netflix",
+    "category": "Premium Apps",
+    "description": "Langganan Netflix Premium Sharing / Private 1 Bulan.",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/1024px-Netflix_2015_N_logo.svg.png",
+    "cover_url": "https://wallpapercave.com/wp/wp10375806.jpg",
+    "supplier_code": "NETFLIX",
+    "sort_order": 9,
+    "is_active": true,
+    "validation_mode": "disabled",
+    "validation_fields": [
+      { "name": "whatsapp", "label": "Nomor WhatsApp", "type": "text", "required": true, "placeholder": "0812xxx" }
+    ],
+    "instructions": "Akun (Email & Password) akan dikirimkan melalui Notifikasi Layar dan ke nomor WhatsApp setelah pembayaran."
+  },
+  {
+    "name": "Spotify Premium",
+    "publisher": "Spotify",
+    "category": "Premium Apps",
+    "description": "Upgrade Akun Spotify kamu ke Premium (Invite Link).",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png",
+    "cover_url": "https://wallpapercave.com/wp/wp6861208.jpg",
+    "supplier_code": "SPOTIFY",
+    "sort_order": 10,
+    "is_active": true,
+    "validation_mode": "disabled",
+    "validation_fields": [
+      { "name": "email", "label": "Email Akun Spotify", "type": "text", "required": true, "placeholder": "email@gmail.com" },
+      { "name": "whatsapp", "label": "Nomor WhatsApp", "type": "text", "required": true, "placeholder": "0812xxx" }
+    ],
+    "instructions": "Link Invitation Spotify Premium Family akan dikirimkan ke WhatsApp Anda."
+  }
+]

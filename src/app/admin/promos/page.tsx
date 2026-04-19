@@ -14,6 +14,7 @@ const SIDEBAR_LINKS = [
   { href: '/admin/products', label: 'Products', icon: '💎' },
   { href: '/admin/users', label: 'Users', icon: '👥' },
   { href: '/admin/promos', label: 'Promos', icon: '🎫' },
+  { href: '/admin/supplier-sync', label: 'API Sync', icon: '🔄' },
 ];
 
 export default function AdminPromosPage() {
