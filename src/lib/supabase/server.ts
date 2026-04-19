@@ -13,10 +13,10 @@ export async function createServerSupabaseClient(): Promise<any> {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet: any[]) {
           try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
+            cookiesToSet.forEach((c: any) =>
+              cookieStore.set(c.name, c.value, c.options)
             );
           } catch {
             // Server Component — ignore
@@ -38,10 +38,10 @@ export async function createAdminSupabaseClient(): Promise<any> {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet: any[]) {
           try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
+            cookiesToSet.forEach((c: any) =>
+              cookieStore.set(c.name, c.value, c.options)
             );
           } catch {
             // Ignore

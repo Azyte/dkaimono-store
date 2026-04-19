@@ -12,13 +12,13 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
+        setAll(cookiesToSet: any[]) {
+          cookiesToSet.forEach((c: any) =>
+            request.cookies.set(c.name, c.value)
           );
           supabaseResponse = NextResponse.next({ request });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+          cookiesToSet.forEach((c: any) =>
+            supabaseResponse.cookies.set(c.name, c.value, c.options)
           );
         },
       },
