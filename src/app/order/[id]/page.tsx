@@ -46,7 +46,7 @@ export default function OrderStatusPage({ params }: Props) {
       .on(
         'postgres_changes',
         { event: 'UPDATE', schema: 'public', table: 'orders', filter: `id=eq.${id}` },
-        (payload) => {
+        (payload: any) => {
           setOrder((prev) => prev ? { ...prev, ...payload.new } as Order : null);
         }
       )
