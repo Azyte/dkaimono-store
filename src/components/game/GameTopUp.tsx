@@ -285,7 +285,7 @@ export function GameTopUp({ game, products }: Props) {
                 onClick={() => {
                   setSelectedProduct(product);
                   setPromoDiscount(0);
-                  if (step === 'product' || step === 'account') setStep('payment');
+                  if (step === 'product') setStep('payment');
                 }}
                 id={`product-${product.id}`}
               >
