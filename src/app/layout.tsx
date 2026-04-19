@@ -6,15 +6,15 @@ import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} — Instant Game Top-Up`,
+    default: `${SITE_NAME} — Top Up Game Instan`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: ['top up', 'game', 'diamonds', 'mobile legends', 'genshin impact', 'free fire', 'pubg', 'valorant'],
+  keywords: ['top up', 'game', 'diamonds', 'mobile legends', 'genshin impact', 'free fire', 'pubg', 'valorant', 'murah', 'tercepat'],
   openGraph: {
     type: 'website',
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Instant Game Top-Up`,
+    title: `${SITE_NAME} — Top Up Game Instan & Termurah`,
     description: SITE_DESCRIPTION,
   },
 };
