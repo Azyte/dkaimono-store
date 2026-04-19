@@ -77,8 +77,9 @@ export function GameGrid({ games }: Props) {
                   className="game-card-image"
                   loading="lazy"
                 />
+                <div className="game-card-overlay"></div>
                 <div className="game-card-body">
-                  <div className="game-card-name">{game.name}</div>
+                  <div className="game-card-name" title={game.name}>{game.name}</div>
                   <div className="game-card-publisher">{game.publisher}</div>
                 </div>
               </div>
