@@ -48,17 +48,17 @@ export default function SupplierSyncPage() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h1>Supplier Host-to-Host (H2H) Sync</h1>
+        <h1>⚙️ Sinkronisasi Sistem H2H (Host-to-Host)</h1>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
         {/* API Config Card */}
         <div className="admin-card">
-          <h2 style={{ fontSize: '1.2rem', marginBottom: 16 }}>Supplier Configuration</h2>
+          <h2 style={{ fontSize: '1.2rem', marginBottom: 16 }}>Konfigurasi Supplier (Provider)</h2>
           <div className="form-group">
-            <label className="form-label">H2H Supplier</label>
+            <label className="form-label">Pilih Supplier H2H</label>
             <select className="form-select" value={supplier} onChange={(e) => setSupplier(e.target.value)}>
-              <option value="digiflazz">Digiflazz API</option>
+              <option value="digiflazz">Digiflazz API (Rekomendasi)</option>
               <option value="vipreseller">VIP Reseller</option>
               <option value="apigames">ApiGames</option>
               <option value="vocagame">VocaGame</option>
@@ -66,29 +66,29 @@ export default function SupplierSyncPage() {
           </div>
           
           <div className="form-group">
-            <label className="form-label">Supplier Username / Client ID</label>
+            <label className="form-label">Username Supplier / Client ID</label>
             <input 
               type="text" 
               className="form-input" 
-              placeholder="e.g. digi_reseller123" 
+              placeholder="Contoh: digi_reseller123" 
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Production API Key</label>
+            <label className="form-label">Production API Key (Kunci Produksi)</label>
             <input 
               type="password" 
               className="form-input" 
-              placeholder="dev-xxxxx OR prod-xxxxx" 
+              placeholder="dev-xxxxx ATAU prod-xxxxx" 
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
             />
           </div>
 
           <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: 16 }}>
-            Keys are stored securely in backend environments. Never share your Production Keys.
+            *API Key Anda akan dienkripsi dengan aman di dalam database secara otomatis. Dilarang membagikan rahasia API Key Anda kepada siapapun.
           </p>
 
           <button 
@@ -97,25 +97,25 @@ export default function SupplierSyncPage() {
             onClick={handleSync}
             disabled={isSyncing || (!apiKey && !username)}
           >
-            {isSyncing ? 'Synchronizing...' : `Pull Products from ${supplier.toUpperCase()}`}
+            {isSyncing ? 'Sedang Mensinkronisasi / Syncing...' : `📥 Tarik Data Produk dari ${supplier.toUpperCase()}`}
           </button>
         </div>
 
         {/* Catalog Control Card */}
         <div className="admin-card">
-          <h2 style={{ fontSize: '1.2rem', marginBottom: 16 }}>Game Catalog Management</h2>
+          <h2 style={{ fontSize: '1.2rem', marginBottom: 16 }}>Management Katalog Game (Otomatis)</h2>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: 16 }}>
-            Initialize your database with Premium White-Label game designs (Icons & Banners HD). This avoids manual data entry.
+            Muat database website Anda dengan desain katalog Game HD. Fitur ini dirancang khusus agar pembeli template tidak perlu menginput ratusan game (termasuk Icon & Banner Resolusi Tinggi) secara manual.
           </p>
           
           <button className="btn btn-secondary" style={{ width: '100%', marginBottom: 16 }} onClick={handleLoadMaster} disabled={isSyncing}>
-            🔄 Load Master HD Catalog (50+ Games)
+            🔄 Load Master HD Catalog (Masukkan 50+ Game Otomatis)
           </button>
 
           {syncResult && (
             <div style={{ marginTop: 24, padding: 16, background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
               <h3 style={{ color: syncResult.success ? 'var(--color-success)' : 'var(--color-error)', marginBottom: 8 }}>
-                {syncResult.success ? '✅ Success' : '❌ Failed'}
+                {syncResult.success ? '✅ Berhasil (Success)' : '❌ Gagal (Failed)'}
               </h3>
               <p style={{ fontWeight: 'bold' }}>{syncResult.message}</p>
               <pre style={{ marginTop: 12, fontSize: '0.8rem', whiteSpace: 'pre-wrap' }}>
