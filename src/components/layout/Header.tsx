@@ -51,12 +51,12 @@ export function Header() {
 
         <div className="header-search">
           <span className="header-search-icon">🔍</span>
-          <input type="text" placeholder="Search games..." id="header-search-input" />
+          <input type="text" placeholder="Cari game..." id="header-search-input" />
         </div>
 
         <nav className="header-nav">
-          <Link href="/" className="header-nav-link">Home</Link>
-          {user && <Link href="/history" className="header-nav-link">Orders</Link>}
+          <Link href="/" className="header-nav-link">Beranda</Link>
+          {user && <Link href="/history" className="header-nav-link">Pesanan</Link>}
           {user?.role === 'admin' && <Link href="/admin" className="header-nav-link">Admin</Link>}
         </nav>
 
@@ -98,7 +98,7 @@ export function Header() {
                   boxShadow: 'var(--shadow-lg)', zIndex: 100,
                 }}>
                   <Link href="/history" className="header-nav-link" style={{ display: 'block', padding: '8px 12px', borderRadius: 'var(--radius-sm)' }}
-                    onClick={() => setMenuOpen(false)}>📦 Order History</Link>
+                    onClick={() => setMenuOpen(false)}>📦 Riwayat Pesanan</Link>
                   {user.role === 'admin' && (
                     <Link href="/admin" className="header-nav-link" style={{ display: 'block', padding: '8px 12px', borderRadius: 'var(--radius-sm)' }}
                       onClick={() => setMenuOpen(false)}>⚙️ Admin Panel</Link>
@@ -106,14 +106,14 @@ export function Header() {
                   <div style={{ height: 1, background: 'var(--border-color)', margin: '4px 0' }} />
                   <button onClick={handleLogout} className="header-nav-link"
                     style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 12px', borderRadius: 'var(--radius-sm)' }}>
-                    🚪 Logout
+                    🚪 Keluar
                   </button>
                 </div>
               )}
             </div>
           ) : (
             <Link href="/login" className="btn btn-primary btn-sm" id="login-btn">
-              Login
+              Masuk
             </Link>
           )}
         </div>

@@ -155,6 +155,7 @@ export function GameTopUp({ game, products }: Props) {
           src={game.icon_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(game.name)}&size=80&background=6C5CE7&color=fff&bold=true`}
           alt={game.name}
           style={{ width: 72, height: 72, borderRadius: 'var(--radius-lg)', objectFit: 'cover' }}
+          onError={(e) => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(game.name)}&size=80&background=6C5CE7&color=fff&bold=true`; }}
         />
         <div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800 }}>{game.name}</h1>

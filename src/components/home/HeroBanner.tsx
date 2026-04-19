@@ -25,8 +25,8 @@ export function HeroBanner({ banners }: Props) {
     return (
       <div className="hero-banner" style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))' }}>
         <div className="hero-overlay">
-          <h1 className="hero-title">Top Up Games Instantly</h1>
-          <p className="hero-subtitle">Cheapest prices, fastest delivery. Your trusted game top-up platform.</p>
+          <h1 className="hero-title">Top Up Game Instan & Termurah 🎮</h1>
+          <p className="hero-subtitle">Harga terjangkau, proses cepat. Platform top-up terpercaya di Indonesia.</p>
         </div>
       </div>
     );
@@ -47,7 +47,7 @@ export function HeroBanner({ banners }: Props) {
             {banner.subtitle && <p className="hero-subtitle">{banner.subtitle}</p>}
             {banner.link_url && (
               <Link href={banner.link_url} className="btn btn-primary" style={{ marginTop: 16, width: 'fit-content' }}>
-                Top Up Now →
+                Top Up Sekarang →
               </Link>
             )}
           </div>
@@ -60,7 +60,7 @@ export function HeroBanner({ banners }: Props) {
               key={i}
               className={`hero-dot ${i === active ? 'active' : ''}`}
               onClick={() => setActive(i)}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`Slide ${i + 1}`}
             />
           ))}
         </div>
