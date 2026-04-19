@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       if (!zone_id) return NextResponse.json({ success: false, error: 'Zone ID is required for MLBB' }, { status: 400 });
       // Mencoba mengambil dari Public API (Jika sedang online)
       try {
-        const res = await fetch(`https://api.elxyz.me/api/check-game/mobilelegends?id=${user_id}&zone=${zone_id}`, { timeout: 3000 });
+        const res = await fetch(`https://api.elxyz.me/api/check-game/mobilelegends?id=${user_id}&zone=${zone_id}`, { signal: AbortSignal.timeout(3000) });
         if(res.ok) {
           const data = await res.json();
           if (data && data.username) {
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     // 2. Free Fire (Butuh Player ID)
     else if (game_slug === 'free-fire' || game_slug === 'ff') {
       try {
-        const res = await fetch(`https://api.elxyz.me/api/check-game/freefire?id=${user_id}`, { timeout: 3000 });
+        const res = await fetch(`https://api.elxyz.me/api/check-game/freefire?id=${user_id}`, { signal: AbortSignal.timeout(3000) });
         if(res.ok) {
           const data = await res.json();
           if (data && data.username) {
